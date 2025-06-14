@@ -97,7 +97,18 @@ public class CupiCava
      */
     public Vino buscarVinoMasDulce( )
     {
-    	Vino buscado = null;
+    	if (vinos.isEmpty()) {
+    		return null;
+    	}
+    	Vino dulce = vinos.get(0);
+    			
+    	for (int i = 1; i < vinos.size(); i++) {
+    		Vino actual = vinos.get(i);
+    		if (actual.darContenidoAzucar() < dulce.darContenidoAzucar()) {
+    			dulce = actual;
+    		}
+    	}
+    	return dulce;
    	 // TODO Parte2 PuntoI: Implemente el método según la documentación dada.
     }
 
@@ -109,8 +120,20 @@ public class CupiCava
      */
     public Vino buscarVinoMasSeco( )
     {
+    	if (vinos.isEmpty()) {
+    		return null;
+    	}
+    	Vino seco = vinos.get(0);
+    			
+    	for (int i = 1; i < vinos.size(); i++) {
+    		Vino actual = vinos.get(i);
+    		if (actual.darContenidoAzucar() > seco.darContenidoAzucar()) {
+    			seco = actual;
+    		}
+    	}
+    	return seco;
    	 // TODO Parte2 PuntoJ: Implemente el método según la documentación dada.
-   }
+    }
 
     /**
      * Busca los vinos del tipo dado por parámetro. <br>
