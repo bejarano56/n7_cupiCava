@@ -244,7 +244,7 @@ public class Vino
      */
     public int compararPorPresentacion( Vino pVino )
     {
-    	return presentacion.compareTo(pVino.darPresentacion())
+    	return presentacion.compareTo(pVino.darPresentacion());
    	 // TODO Parte2 PuntoB: Implemente el método según la documentación dada.
     }
 
@@ -257,8 +257,14 @@ public class Vino
      */
     public int compararPorAnhoElaboracion( Vino pVino )
     {
+    	if (anhoElaboracion == pVino.darAnhoElaboracion())
+            return 0;
+        else if (anhoElaboracion < pVino.darAnhoElaboracion())
+            return -1;
+        else
+            return 1;
    	 // TODO Parte2 PuntoC: Implemente el método según la documentación dada.
-   }
+    }
 
     /**
      * Compara dos vinos según el contenido en azúcar. <br>
@@ -269,8 +275,14 @@ public class Vino
      */
     public int compararPorContenidoAzucar( Vino pVino )
     {
+    	if (contenidoAzucar == pVino.darContenidoAzucar())
+            return 0;
+        else if (contenidoAzucar < pVino.darContenidoAzucar())
+            return -1;
+        else
+            return 1;
    	 // TODO Parte2 PuntoD: Implemente el método según la documentación dada.
-   }
+    }
 
     /**
      * Compara dos vinos según el tipo de vino. <br>
@@ -281,8 +293,9 @@ public class Vino
      */
     public int compararPorTipo( Vino pVino )
     {
+    	return tipo.compareTo(pVino.darTipo());
    	 // TODO Parte2 PuntoE: Implemente el método según la documentación dada.
-   }
+    }
 
     /**
      * Compara dos vinos según el color. <br>
@@ -293,6 +306,7 @@ public class Vino
      */
     public int compararPorColor( Vino pVino )
     {
+    	return color.compareTo(pVino.darColor());
    	 // TODO Parte2 PuntoF: Implemente el método según la documentación dada.
     }
 
@@ -305,8 +319,9 @@ public class Vino
      */
     public int compararPorLugarOrigen( Vino pVino )
     {
+        return lugarOrigen.compareTo(pVino.darLugarOrigen());
    	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
-   }
+    }
 
     /**
      * Retorna una cadena con el nombre del vino.
