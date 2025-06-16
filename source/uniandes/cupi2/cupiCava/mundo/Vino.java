@@ -143,7 +143,7 @@ public class Vino
         color = pColor;
         lugarOrigen = pLugarOrigen;
         imagen = pImagen;
-
+        verificarInvariante();
     }
 
     // -------------------------------------------------------------
@@ -335,6 +335,16 @@ public class Vino
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
-    
+    private void verificarInvariante() {
+        assert nombre != null && !nombre.equals("") : "El nombre no puede estar vacio.";
+        assert presentacion != null && (presentacion.equals(BOTELLA) || presentacion.equals(BARRIL)) : "La presentación no es válida";
+        assert anhoElaboracion > 0 : "El año de elaboración debe ser mayor que 0";
+        assert contenidoAzucar >= 0 : "El contenido de azúcar debe ser mayor o igual a 0";
+        assert tipo != null && (tipo.equals(SECO) || tipo.equals(ABOCADO) || tipo.equals(SEMI_SECO) || tipo.equals(SEMI_DULCE) || tipo.equals(DULCE)) : "El tipo de vino no es válido";
+        assert color != null && (color.equals(TINTO) || color.equals(ROSADO) || color.equals(BLANCO)) : "El color del vino no es válido";
+        assert lugarOrigen != null && !lugarOrigen.equals("") : "El lugar de origen no puede estar vacio";
+        assert imagen != null && !imagen.equals("") : "La imagen no puede estar vacia";
+        
+    }
     // TODO Parte1 PuntoB: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 }
