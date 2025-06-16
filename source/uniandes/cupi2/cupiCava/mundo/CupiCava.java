@@ -275,7 +275,16 @@ public class CupiCava
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
-
+    private boolean verificarInvariante() {
+        for (int i = 0; i < vinos.size(); i++) {
+            for (int j = i + 1; j < vinos.size(); j++) {
+                if (vinos.get(i).darNombre().equalsIgnoreCase(vinos.get(j).darNombre())) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 
     // -----------------------------------------------------------------

@@ -61,6 +61,7 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
      * Lista de los vinos.
      */
     // TODO Parte3 PuntoA: Declare el atributo listaVinos de tipo JList.
+    private JList<String> listaVinos;
 
     /**
      * Panel con un scroll que contiene a listaVinos.
@@ -89,12 +90,17 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
         setPreferredSize( new Dimension( 250, 0 ) );
 
         // TODO Parte3 PuntoB: Inicializar la lista de vinos y agregarle un ListSelectionListener
-        
+        listaVinos = new JList<>();
+        listaVinos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaVinos.addListSelectionListener(this);
+
 
      // TODO Parte3 PuntoC: Inicializar el scroll.
+        scroll = new JScrollPane(listaVinos);
         scroll.setHorizontalScrollBarPolicy( JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
         scroll.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
         scroll.setBorder( new CompoundBorder( new EmptyBorder( 3, 3, 3, 3 ), new LineBorder( Color.BLACK, 1 ) ) );
+        
 
         botonAgregar = new JButton( AGREGAR );
         botonAgregar.setActionCommand( AGREGAR );
@@ -112,13 +118,13 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
      * Actualiza la lista de vinos con la lista recibida por parámetro.
      * @param pListaVinos Lista de los vinos. pListaVinos != null.
      */
-    public void refrescarLista( ArrayList pListaVinos )
+    public void refrescarLista( ArrayList<String> pListaVinos )
     {
-        listaVinos.setListData( pListaVinos.toArray( ) );
-        if( !pListaVinos.isEmpty( ) )
-        {
-            listaVinos.setSelectedIndex( 0 );
-        }
+    	 listaVinos.setListData(pListaVinos.toArray(new String[0]));
+    	    if (!pListaVinos.isEmpty())
+    	    {
+    	        listaVinos.setSelectedIndex(0);
+    	    }
     }
 
     /**
