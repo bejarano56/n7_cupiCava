@@ -86,6 +86,24 @@ public class CupiCava
      */
     public Vino buscarBinarioPorNombre( String pNombre )
     {
+    	 int inicio = 0;
+    	    int fin = vinos.size() - 1;
+
+    	    while (inicio <= fin) {
+    	        int medio = (inicio + fin) / 2;
+    	        Vino actual = vinos.get(medio);
+    	        int comparacion = actual.darNombre().compareToIgnoreCase(pNombre);
+
+    	        if (comparacion == 0) {
+    	            return actual;
+    	        } else if (comparacion < 0) {
+    	            inicio = medio + 1;
+    	        } else {
+    	            fin = medio - 1;
+    	        }
+    	    }
+
+    	    return null;
    	 // TODO Parte2 PuntoH: Implemente el método según la documentación dada.
     }
 
@@ -144,8 +162,9 @@ public class CupiCava
      */
     public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
     {
+    	
    	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
-   }
+    }
 
     /**
      * Agrega un nuevo vino a la cava si no existe actualmente un vino en la cava con el mismo nombre.<br>
@@ -184,8 +203,19 @@ public class CupiCava
      */
     public void ordenarVinosPorNombre( )
     {
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+    		for (int j = 0; j < vinos.size() - 1 - i; j++) {
+    			Vino v1 = vinos.get(j);
+    			Vino v2 = vinos.get(j + 1);
+    			
+    				if (v1.darNombre().compareToIgnoreCase(v2.darNombre()) > 0) {
+    					vinos.set(i, v2);
+    					vinos.set(j + 1, v1);
+    				}
+    		}
+    	}
    	 // TODO Parte2 PuntoL: Implemente el método según la documentación dada.
-   }
+    }
 
     /**
      * Ordena descendentemente la lista de vinos por año de elaboración usando el algoritmo de selección. <br>
