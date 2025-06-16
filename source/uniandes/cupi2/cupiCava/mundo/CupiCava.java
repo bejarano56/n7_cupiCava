@@ -232,9 +232,25 @@ public class CupiCava
      */
     public void ordenarVinosPorAnhoElaboracion( )
     {
-   	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
-   }
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+            int indiceMayor = i;
 
+            for (int j = i + 1; j < vinos.size(); j++) {
+                if (vinos.get(j).darAnhoElaboracion() > vinos.get(indiceMayor).darAnhoElaboracion()) {
+                    indiceMayor = j;
+                }
+            }
+
+            if (i != indiceMayor) {
+                Vino temp = vinos.get(i);
+                vinos.set(i, vinos.get(indiceMayor));
+                vinos.set(indiceMayor, temp);
+            }
+        }
+
+   	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
+    }
+ 
     /**
      * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
      * <b>pre:</b> La lista de vinos está inicializada.<br>
@@ -242,8 +258,19 @@ public class CupiCava
      */
     public void ordenarVinosPorLugarOrigen( )
     {
+    	for (int i = 1; i < vinos.size(); i++) {
+            Vino actual = vinos.get(i);
+            int j = i - 1;
+
+            while (j >= 0 && vinos.get(j).darLugarOrigen().compareToIgnoreCase(actual.darLugarOrigen()) > 0) {
+                vinos.set(j + 1, vinos.get(j));
+                j--;
+            }
+
+            vinos.set(j + 1, actual);
+        }
    	 // TODO Parte2 PuntoN: Implemente el método según la documentación dada.
-   }
+    }
 
     // -----------------------------------------------------------------
     // Invariante
