@@ -162,7 +162,15 @@ public class CupiCava
      */
     public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
     {
-    	
+    	 ArrayList<Vino> resultado = new ArrayList<Vino>();
+
+    	    for (Vino v : vinos) {
+    	        if (v.darTipo().equalsIgnoreCase(pTipo)) {
+    	            resultado.add(v);
+    	        }
+    	    }
+
+    	    return resultado;
    	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
     }
 
