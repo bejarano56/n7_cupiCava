@@ -231,6 +231,7 @@ public class Vino
      */
     public int compararPorNombre( Vino pVino )
     {
+    	return nombre.compareTo(pVino.darNombre());
     	 // TODO Parte2 PuntoA: Implemente el método según la documentación dada.
     }
 
@@ -243,8 +244,9 @@ public class Vino
      */
     public int compararPorPresentacion( Vino pVino )
     {
+    	return presentacion.compareTo(pVino.darPresentacion())
    	 // TODO Parte2 PuntoB: Implemente el método según la documentación dada.
-   }
+    }
 
     /**
      * Compara dos vinos según el año de elaboración. <br>
@@ -318,6 +320,6 @@ public class Vino
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
-
+    
     // TODO Parte1 PuntoB: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 }
